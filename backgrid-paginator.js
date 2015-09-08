@@ -11,9 +11,10 @@
   if (typeof exports == "object") {
     Backbone = Backbone || require("backbone");
     Backbone.$ = Backbone.$ || require("jquery");
-    module.exports = factory(require("underscore"),
-                             require("backbone"),
-                             require("backgrid"),
+    Backgrid = Backgrid || require("backgrid");
+    module.exports = factory(require("lodash"),
+                             Backbone,
+                             Backgrid,
                              require("backbone.paginator"));
   }
   // AMD. Register as an anonymous module.
