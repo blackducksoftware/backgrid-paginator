@@ -432,4 +432,5 @@
 
   });
 
+  return {PageHandle:PageHandle, Paginator:Paginator};
 }));
