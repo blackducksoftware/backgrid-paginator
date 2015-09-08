@@ -9,6 +9,8 @@
 
   // CommonJS
   if (typeof exports == "object") {
+    Backbone = Backbone || require("backbone");
+    Backbone.$ = Backbone.$ || require("jquery");
     module.exports = factory(require("underscore"),
                              require("backbone"),
                              require("backgrid"),
