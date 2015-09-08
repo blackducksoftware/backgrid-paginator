@@ -20,6 +20,9 @@
   "bugs": {
     "url": "https://github.com/wyuenho/backgrid-paginator/issues"
   },
+  "dependencies": {
+    "backbone.paginator": "~2.0.2"
+  },
   "devDependencies": {
     "grunt-contrib-clean": "~0.4.1",
     "grunt-jsduck": "~0.1.4",
