@@ -9,9 +9,9 @@
 
   // CommonJS
   if (typeof exports == "object") {
-    Backbone = Backbone || require("backbone");
+    var Backbone = global.Backbone || require("backbone");
     Backbone.$ = Backbone.$ || require("jquery");
-    Backgrid = Backgrid || require("backgrid");
+    var Backgrid = global.Backgrid || require("backgrid");
     module.exports = factory(require("lodash"),
                              Backbone,
                              Backgrid,
