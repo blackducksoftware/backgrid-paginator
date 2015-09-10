@@ -225,6 +225,12 @@
 
     /** @property */
     className: "backgrid-paginator",
+    
+    /** @property class for root */
+    rootClassName: null,
+    
+    /** @property class for ul element of paginator */
+    ulClassName: null,
 
     /** @property */
     windowSize: 10,
@@ -294,10 +300,15 @@
       self.controls = _.defaults(options.controls || {}, self.controls,
                                  Paginator.prototype.controls);
 
-      _.extend(self, _.pick(options || {}, "windowSize", "pageHandle",
+      _.extend(self, _.pick(options || {}, "rootClassName", "ulClassName", "windowSize", "pageHandle",
                             "slideScale", "goBackFirstOnSort",
                             "renderIndexedPageHandles"));
-
+                            
+      //Override with custom class
+      if (self.rootClassName){
+        self.className = self.className + ' ' + self.rootClassName;
+      }
+      
       var col = self.collection;
       self.listenTo(col, "add", self.render);
       self.listenTo(col, "remove", self.render);
@@ -422,6 +433,9 @@
       var handles = this.handles = this.makeHandles();
 
       var ul = document.createElement("ul");
+      if (this.ulClassName){
+        ul.className = this.ulClassName;
+      }
       for (var i = 0; i < handles.length; i++) {
         ul.appendChild(handles[i].render().el);
       }
