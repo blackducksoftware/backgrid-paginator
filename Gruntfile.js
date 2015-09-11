@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       test: {
         version: "1.3.1",
         src: [
-          "backgrid-paginator.js"
+          "backgrid-paginator-bootstrap.js"
         ],
         options: {
           specs: [
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
           },
           vendor: [
             "test/vendor/js/jquery.js",
-            "test/vendor/js/underscore.js",
+            "test/vendor/js/lodash.js",
             "test/vendor/js/backbone.js",
             "test/vendor/js/backgrid.js",
             'test/vendor/js/backbone.paginator.js'
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
     },
     jsduck: {
       main: {
-        src: ["backgrid-paginator.js"],
+        src: ["backgrid-paginator-bootstrap.js"],
         dest: "api",
         options: {
           "external": ["Backbone.Model,Backbone.Collection,Backbone.View,Backgrid.Grid,Backgrid.Column"],
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
       },
       "default": {
         files: {
-          "backgrid-paginator.min.js": ["backgrid-paginator.js"]
+          "backgrid-paginator-bootstrap.min.js": ["backgrid-paginator-bootstrap.js"]
         }
       }
     }

@@ -1,27 +1,32 @@
 {
-  "name": "backgrid-paginator",
-  "version": "0.3.5",
+  "name": "backgrid-paginator-bootstrap",
+  "version": "0.3.6",
   "description": "Backgrid.js extension for pagination.",
-  "main": "backgrid-paginator.js",
+  "main": "backgrid-paginator-bootstrap.js",
   "scripts": {
     "test": "grunt jasmine"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/wyuenho/backgrid-paginator.git"
+    "url": "git://github.com/ludoo0d0a/backgrid-paginator-bootstrap.git"
   },
   "keywords": [
     "backbone",
     "backgrid"
   ],
   "author": "Jimmy Yuen Ho Wong <wyuenho@gmail.com>",
+  "author": "Ludovic Valente <ludovic.valente@gmail.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/wyuenho/backgrid-paginator/issues"
+    "url": "https://github.com/ludoo0d0a/backgrid-paginator-bootstrap/issues"
   },
   "dependencies": {
-    "backbone.paginator": "~2.0.2"
+    "backbone.paginator": "~2.0.2",
+    "lodash" : "*",
+    "backbone" : "*",
+    "jquery" : "*",
+    "backgrid" : "*"
   },
   "devDependencies": {
     "grunt-contrib-clean": "~0.4.1",
@@ -32,6 +37,5 @@
     "grunt-recess": "~0.3.3",
     "grunt-template-jasmine-istanbul": "~0.2.4",
     "grunt-contrib-jasmine": "~0.5.1"
-  },
-  "private": true
+  }
 }

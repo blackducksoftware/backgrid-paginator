@@ -1,7 +1,8 @@
-backgrid-paginator
+backgrid-paginator-bootstrap
 ==================
 
-[![Build Status](https://travis-ci.org/wyuenho/backgrid-paginator.png?branch=master)](https://travis-ci.org/wyuenho/backgrid-paginator)
+Fork from [backgrid-paginator](http://github.com/wyuenho/backbone-paginator/)
+Add Bootstrap and CommonJs support
 
 
 Dependencies
