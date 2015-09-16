@@ -11,3 +11,4 @@ node_modules
 .localized
 Thumb.db
 *.ithmb
+.idea
