@@ -31,8 +31,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(true);
-      expect(handle.$("a").attr("title")).toBe("first");
-      expect(handle.$("a").text()).toBe("first");
+      expect(handle.$("button").attr("title")).toBe("first");
+      expect(handle.$("button").text()).toBe("first");
     });
 
     it("can render a rewind handle if current page != first page", function () {
@@ -45,8 +45,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(false);
-      expect(handle.$("a").attr("title")).toBe("first");
-      expect(handle.$("a").text()).toBe("first");
+      expect(handle.$("button").attr("title")).toBe("first");
+      expect(handle.$("button").text()).toBe("first");
     });
 
     it("the rewind handle will get first page on click", function () {
@@ -58,7 +58,7 @@ describe("A PageHandle", function () {
         title: "first"
       });
       handle.render();
-      handle.$("a").click();
+      handle.$("button").click();
       expect(collection.state.currentPage).toBe(1);
     });
 
@@ -71,8 +71,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(true);
-      expect(handle.$("a").attr("title")).toBe("back");
-      expect(handle.$("a").text()).toBe("back");
+      expect(handle.$("button").attr("title")).toBe("back");
+      expect(handle.$("button").text()).toBe("back");
     });
 
     it("can render a back handle if current page != first page", function () {
@@ -85,8 +85,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(false);
-      expect(handle.$("a").attr("title")).toBe("back");
-      expect(handle.$("a").text()).toBe("back");
+      expect(handle.$("button").attr("title")).toBe("back");
+      expect(handle.$("button").text()).toBe("back");
     });
 
     it("the back handle will get the previous page on click", function () {
@@ -98,7 +98,7 @@ describe("A PageHandle", function () {
         title: "back"
       });
       handle.render();
-      handle.$("a").click();
+      handle.$("button").click();
       expect(collection.state.currentPage).toBe(2);
     });
 
@@ -112,8 +112,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(true);
-      expect(handle.$("a").attr("title")).toBe("next");
-      expect(handle.$("a").text()).toBe("next");
+      expect(handle.$("button").attr("title")).toBe("next");
+      expect(handle.$("button").text()).toBe("next");
     });
 
     it("can render a forward handle if current page != first page", function () {
@@ -125,8 +125,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(false);
-      expect(handle.$("a").attr("title")).toBe("next");
-      expect(handle.$("a").text()).toBe("next");
+      expect(handle.$("button").attr("title")).toBe("next");
+      expect(handle.$("button").text()).toBe("next");
     });
 
     it("the forward handle will get next page on click", function () {
@@ -137,7 +137,7 @@ describe("A PageHandle", function () {
         title: "next"
       });
       handle.render();
-      handle.$("a").click();
+      handle.$("button").click();
       expect(collection.state.currentPage).toBe(2);
     });
 
@@ -151,8 +151,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(true);
-      expect(handle.$("a").attr("title")).toBe("last");
-      expect(handle.$("a").text()).toBe("last");
+      expect(handle.$("button").attr("title")).toBe("last");
+      expect(handle.$("button").text()).toBe("last");
     });
 
     it("can render a fast forward handle if current page != first page", function () {
@@ -164,8 +164,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("disabled")).toBe(false);
-      expect(handle.$("a").attr("title")).toBe("last");
-      expect(handle.$("a").text()).toBe("last");
+      expect(handle.$("button").attr("title")).toBe("last");
+      expect(handle.$("button").text()).toBe("last");
     });
 
     it("can render a disabled forward handle if totalPages < 1", function () {
@@ -195,7 +195,7 @@ describe("A PageHandle", function () {
         title: "last"
       });
       handle.render();
-      handle.$("a").click();
+      handle.$("button").click();
       expect(collection.state.currentPage).toBe(collection.state.lastPage);
     });
 
@@ -209,7 +209,7 @@ describe("A PageHandle", function () {
         pageIndex: 0
       });
       handle.render();
-      expect(handle.$("a").text()).toBe("1");
+      expect(handle.$("button").text()).toBe("1");
     });
 
     it("renders a label independently of the pageIndex if one is given", function () {
@@ -219,7 +219,7 @@ describe("A PageHandle", function () {
         label: "a"
       });
       handle.render();
-      expect(handle.$("a").text()).toBe("a");
+      expect(handle.$("button").text()).toBe("a");
     });
 
     it("renders a default title", function () {
@@ -228,7 +228,7 @@ describe("A PageHandle", function () {
         pageIndex: 0
       });
       handle.render();
-      expect(handle.$("a").attr("title")).toBe("Page 1");
+      expect(handle.$("button").attr("title")).toBe("Page 1");
     });
 
     it("renders the title if one is given", function () {
@@ -238,7 +238,7 @@ describe("A PageHandle", function () {
         title: "one"
       });
       handle.render();
-      expect(handle.$("a").attr("title")).toBe("one");
+      expect(handle.$("button").attr("title")).toBe("one");
     });
 
     it("renders a title template if one is given", function () {
@@ -248,7 +248,7 @@ describe("A PageHandle", function () {
         title: _.template("No. <%- label %>")
       });
       handle.render();
-      expect(handle.$("a").attr("title")).toBe("No. 1");
+      expect(handle.$("button").attr("title")).toBe("No. 1");
     });
 
     it("renders an active page handle if current page = pageIndex", function () {
@@ -258,8 +258,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("active")).toBe(true);
-      expect(handle.$("a").attr("title")).toBe("Page 1");
-      expect(handle.$("a").text()).toBe("1");
+      expect(handle.$("button").attr("title")).toBe("Page 1");
+      expect(handle.$("button").text()).toBe("1");
     });
 
     it("renders an page handle if current page != pageIndex", function () {
@@ -269,8 +269,8 @@ describe("A PageHandle", function () {
       });
       handle.render();
       expect(handle.$el.hasClass("active")).toBe(false);
-      expect(handle.$("a").attr("title")).toBe("Page 2");
-      expect(handle.$("a").text()).toBe("2");
+      expect(handle.$("button").attr("title")).toBe("Page 2");
+      expect(handle.$("button").text()).toBe("2");
     });
 
     it("the handle will get the page on click", function () {
@@ -279,7 +279,7 @@ describe("A PageHandle", function () {
         pageIndex: 1
       });
       handle.render();
-      handle.$("a").click();
+      handle.$("button").click();
       expect(collection.state.currentPage).toBe(2);
     });
 
@@ -363,9 +363,9 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(5);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(5);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(0);
 
       paginator = new Backgrid.Extension.Paginator({
         collection: new Backbone.PageableCollection([{id: 1}], {
@@ -378,9 +378,9 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(5);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(5);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(0);
 
       paginator = new Backgrid.Extension.Paginator({
         collection: new Backbone.PageableCollection([{id: 1}, {id: 2}], {
@@ -393,9 +393,9 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(5);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(5);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(0);
     });
 
     it("clicking on active or disabled page handles have no effect", function () {
@@ -408,29 +408,29 @@ describe("A Paginator", function () {
         })
       });
 
-      paginator.$el.find("a").eq(0).click();
+      paginator.$el.find("button").eq(0).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(1).click();
+      paginator.$el.find("button").eq(1).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(2).click();
+      paginator.$el.find("button").eq(2).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(3).click();
+      paginator.$el.find("button").eq(3).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(4).click();
+      paginator.$el.find("button").eq(4).click();
       expect(paginator.collection.state.currentPage).toBe(1);
     });
 
     it("has page handles that go to the correct pages when clicked", function () {
       // page 2
-      paginator.$el.find("a").eq(3).click();
+      paginator.$el.find("button").eq(3).click();
       expect(collection.state.currentPage).toBe(2);
 
       // page 1
-      paginator.$el.find("a").eq(2).click();
+      paginator.$el.find("button").eq(2).click();
       expect(collection.state.currentPage).toBe(1);
 
       // reset window size and rerender
@@ -438,13 +438,13 @@ describe("A Paginator", function () {
       paginator.render();
 
       // last page
-      paginator.$el.find("a").eq(4).click();
-      expect(paginator.$el.find("a").eq(2).html()).toBe('3');
+      paginator.$el.find("button").eq(4).click();
+      expect(paginator.$el.find("button").eq(2).html()).toBe('3');
       expect(collection.state.currentPage).toBe(3);
 
       // prev page
-      paginator.$el.find("a").eq(1).click();
-      expect(paginator.$el.find("a").eq(2).html()).toBe('2');
+      paginator.$el.find("button").eq(1).click();
+      expect(paginator.$el.find("button").eq(2).html()).toBe('2');
       expect(collection.state.currentPage).toBe(2);
 
       // 0-based page indices
@@ -461,51 +461,51 @@ describe("A Paginator", function () {
       paginator.render();
 
       // next page
-      paginator.$el.find("a").eq(3).click();
+      paginator.$el.find("button").eq(3).click();
       expect(collection.state.currentPage).toBe(1);
 
       // first page
-      paginator.$el.find("a").eq(0).click();
+      paginator.$el.find("button").eq(0).click();
       expect(collection.state.currentPage).toBe(0);
     });
 
     it("renders page handles <= windowSize", function () {
-      expect(paginator.$el.find("a").length).toBe(7);
+      expect(paginator.$el.find("button").length).toBe(7);
 
       paginator.windowSize = 1;
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(5);
+      expect(paginator.$el.find("button").length).toBe(5);
     });
 
     it("refreshes upon row insertion", function () {
       collection.add([{id: 6}, {id: 7}]);
-      expect(paginator.$el.find("a").length).toBe(8);
-      expect(paginator.$el.find("a[title='Page 4']").length).toBe(1);
+      expect(paginator.$el.find("button").length).toBe(8);
+      expect(paginator.$el.find("button[title='Page 4']").length).toBe(1);
     });
 
     it("refreshes upon row removal", function () {
       collection.remove(collection.first());
-      expect(paginator.$el.find("a").length).toBe(6);
-      expect(paginator.$el.find("a[title='Page 3']").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(6);
+      expect(paginator.$el.find("button[title='Page 3']").length).toBe(0);
     });
 
     it("refreshes upon collection reset", function () {
       collection.fullCollection.reset();
-      expect(paginator.$el.find("a").length).toBe(5);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(5);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(0);
     });
 
     it("will go back to the first page on sort by default", function () {
-      paginator.$el.find("a").eq(3).click();
+      paginator.$el.find("button").eq(3).click();
       collection.setSorting("id", -1);
       collection.fullCollection.sort();
       collection.trigger("backgrid:sorted");
       expect(paginator.$el.find("li").eq(2).hasClass("active")).toBe(true);
 
       paginator.goBackFirstOnSort = false;
-      paginator.$el.find("a").eq(3).click();
+      paginator.$el.find("button").eq(3).click();
       collection.fullCollection.sort();
       collection.trigger("backgrid:sorted");
       expect(paginator.$el.find("li").eq(3).hasClass("active")).toBe(true);
@@ -520,9 +520,9 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(5);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(5);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(0);
     });
 
     it("renders the overriden control page handle labels and titles", function () {
@@ -541,9 +541,9 @@ describe("A Paginator", function () {
         collection: collection
       });
       paginator.render();
-      expect(paginator.$el.find("a").length).toBe(7);
-      expect(paginator.$el.find("a").eq(1).html()).toBe("prev");
-      expect(paginator.$el.find("a").eq(5).html()).toBe("next");
+      expect(paginator.$el.find("button").length).toBe(7);
+      expect(paginator.$el.find("button").eq(1).html()).toBe("prev");
+      expect(paginator.$el.find("button").eq(5).html()).toBe("next");
     });
 
     it("renders no indexed handles if renderIndexedPageHandles is false", function () {
@@ -552,11 +552,11 @@ describe("A Paginator", function () {
         renderIndexedPageHandles: false
       });
       paginator.render();
-      expect(paginator.$el.find("a").length).toBe(4);
-      expect(paginator.$el.find("a").eq(0).attr("title")).toBe("First");
-      expect(paginator.$el.find("a").eq(1).attr("title")).toBe("Previous");
-      expect(paginator.$el.find("a").eq(2).attr("title")).toBe("Next");
-      expect(paginator.$el.find("a").eq(3).attr("title")).toBe("Last");
+      expect(paginator.$el.find("button").length).toBe(4);
+      expect(paginator.$el.find("button").eq(0).attr("title")).toBe("First");
+      expect(paginator.$el.find("button").eq(1).attr("title")).toBe("Previous");
+      expect(paginator.$el.find("button").eq(2).attr("title")).toBe("Next");
+      expect(paginator.$el.find("button").eq(3).attr("title")).toBe("Last");
     });
 
   });
@@ -587,19 +587,19 @@ describe("A Paginator", function () {
         })
       });
 
-      paginator.$el.find("a").eq(0).click();
+      paginator.$el.find("button").eq(0).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(1).click();
+      paginator.$el.find("button").eq(1).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(2).click();
+      paginator.$el.find("button").eq(2).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(3).click();
+      paginator.$el.find("button").eq(3).click();
       expect(paginator.collection.state.currentPage).toBe(1);
 
-      paginator.$el.find("a").eq(4).click();
+      paginator.$el.find("button").eq(4).click();
       expect(paginator.collection.state.currentPage).toBe(1);
     });
 
@@ -615,16 +615,16 @@ describe("A Paginator", function () {
       Backbone.ajax = function (settings) {
         settings.success([{id: 3}]);
       };
-      paginator.$el.find("a").eq(4).click();
-      expect(paginator.$el.find("a").eq(2).html()).toBe('3');
+      paginator.$el.find("button").eq(4).click();
+      expect(paginator.$el.find("button").eq(2).html()).toBe('3');
       expect(collection.state.currentPage).toBe(3);
 
       // prev page
       Backbone.ajax = function (settings) {
         settings.success([{id: 2}]);
       };
-      paginator.$el.find("a").eq(1).click();
-      expect(paginator.$el.find("a").eq(2).html()).toBe('2');
+      paginator.$el.find("button").eq(1).click();
+      expect(paginator.$el.find("button").eq(2).html()).toBe('2');
       expect(collection.state.currentPage).toBe(2);
 
       // 0-based page indices
@@ -648,40 +648,40 @@ describe("A Paginator", function () {
       Backbone.ajax = function (settings) {
         settings.success([{id: 3}, {id: 4}]);
       };
-      paginator.$el.find("a").eq(3).click();
+      paginator.$el.find("button").eq(3).click();
       expect(collection.state.currentPage).toBe(1);
 
       // page 1
       Backbone.ajax = function (settings) {
         settings.success([{id: 1}, {id: 2}]);
       };
-      paginator.$el.find("a").eq(2).click();
+      paginator.$el.find("button").eq(2).click();
       expect(collection.state.currentPage).toBe(0);
 
       // next page
       Backbone.ajax = function (settings) {
         settings.success([{id: 3}, {id: 4}]);
       };
-      paginator.$el.find("a").eq(5).click();
+      paginator.$el.find("button").eq(5).click();
       expect(collection.state.currentPage).toBe(1);
 
       // first page
       Backbone.ajax = function (settings) {
         settings.success([{id: 1}, {id: 2}]);
       };
-      paginator.$el.find("a").eq(0).click();
+      paginator.$el.find("button").eq(0).click();
       expect(collection.state.currentPage).toBe(0);
 
       Backbone.ajax = oldAjax;
     });
 
     it("renders page handles <= windowSize", function () {
-      expect(paginator.$el.find("a").length).toBe(7);
+      expect(paginator.$el.find("button").length).toBe(7);
 
       paginator.windowSize = 1;
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(5);
+      expect(paginator.$el.find("button").length).toBe(5);
     });
 
     it("displays a single page handler number 1 when the collection is empty and totalRecords is null", function () {
@@ -691,17 +691,17 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(5);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(5);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(0);
     });
 
     it("refreshes upon collection reset", function () {
       collection.reset([{id: 1}]);
-      expect(paginator.$el.find("a").length).toBe(7);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 3']").length).toBe(1);
+      expect(paginator.$el.find("button").length).toBe(7);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 3']").length).toBe(1);
     });
 
     it("renders the overriden control page handle labels and titles", function () {
@@ -720,9 +720,9 @@ describe("A Paginator", function () {
         collection: collection
       });
       paginator.render();
-      expect(paginator.$el.find("a").length).toBe(7);
-      expect(paginator.$el.find("a").eq(1).html()).toBe("prev");
-      expect(paginator.$el.find("a").eq(5).html()).toBe("next");
+      expect(paginator.$el.find("button").length).toBe(7);
+      expect(paginator.$el.find("button").eq(1).html()).toBe("prev");
+      expect(paginator.$el.find("button").eq(5).html()).toBe("next");
     });
 
     it("renders no indexed handles if renderIndexedPageHandles is false", function () {
@@ -731,11 +731,11 @@ describe("A Paginator", function () {
         renderIndexedPageHandles: false
       });
       paginator.render();
-      expect(paginator.$el.find("a").length).toBe(4);
-      expect(paginator.$el.find("a").eq(0).attr("title")).toBe("First");
-      expect(paginator.$el.find("a").eq(1).attr("title")).toBe("Previous");
-      expect(paginator.$el.find("a").eq(2).attr("title")).toBe("Next");
-      expect(paginator.$el.find("a").eq(3).attr("title")).toBe("Last");
+      expect(paginator.$el.find("button").length).toBe(4);
+      expect(paginator.$el.find("button").eq(0).attr("title")).toBe("First");
+      expect(paginator.$el.find("button").eq(1).attr("title")).toBe("Previous");
+      expect(paginator.$el.find("button").eq(2).attr("title")).toBe("Next");
+      expect(paginator.$el.find("button").eq(3).attr("title")).toBe("Last");
     });
 
   });
@@ -776,9 +776,9 @@ describe("A Paginator", function () {
         collection: collection
       });
       paginator.render();
-      expect(paginator.$el.find("a").length).toBe(7);
-      expect(paginator.$el.find("a").eq(1).html()).toBe("prev");
-      expect(paginator.$el.find("a").eq(5).html()).toBe("next");
+      expect(paginator.$el.find("button").length).toBe(7);
+      expect(paginator.$el.find("button").eq(1).html()).toBe("prev");
+      expect(paginator.$el.find("button").eq(5).html()).toBe("next");
     });
 
     it("renders no indexed handles if renderIndexedPageHandles is false", function () {
@@ -787,11 +787,11 @@ describe("A Paginator", function () {
         renderIndexedPageHandles: false
       });
       paginator.render();
-      expect(paginator.$el.find("a").length).toBe(4);
-      expect(paginator.$el.find("a").eq(0).attr("title")).toBe("First");
-      expect(paginator.$el.find("a").eq(1).attr("title")).toBe("Previous");
-      expect(paginator.$el.find("a").eq(2).attr("title")).toBe("Next");
-      expect(paginator.$el.find("a").eq(3).attr("title")).toBe("Last");
+      expect(paginator.$el.find("button").length).toBe(4);
+      expect(paginator.$el.find("button").eq(0).attr("title")).toBe("First");
+      expect(paginator.$el.find("button").eq(1).attr("title")).toBe("Previous");
+      expect(paginator.$el.find("button").eq(2).attr("title")).toBe("Next");
+      expect(paginator.$el.find("button").eq(3).attr("title")).toBe("Last");
     });
 
   });
@@ -810,7 +810,7 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(0);
 
       paginator = new Backgrid.Extension.Paginator({
         collection: new Backbone.PageableCollection([{id: 1}], {
@@ -824,7 +824,7 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(0);
 
       paginator = new Backgrid.Extension.Paginator({
         collection: new Backbone.PageableCollection([{id: 1}, {id: 2}], {
@@ -838,7 +838,7 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(0);
+      expect(paginator.$el.find("button").length).toBe(0);
 
       paginator = new Backgrid.Extension.Paginator({
         collection: new Backbone.PageableCollection([{id: 1}, {id: 2}, {id: 3}], {
@@ -852,9 +852,9 @@ describe("A Paginator", function () {
 
       paginator.render();
 
-      expect(paginator.$el.find("a").length).toBe(6);
-      expect(paginator.$el.find("a[title='Page 1']").length).toBe(1);
-      expect(paginator.$el.find("a[title='Page 2']").length).toBe(1);
+      expect(paginator.$el.find("button").length).toBe(6);
+      expect(paginator.$el.find("button[title='Page 1']").length).toBe(1);
+      expect(paginator.$el.find("button[title='Page 2']").length).toBe(1);
     });
 
   });
