@@ -41,7 +41,7 @@
      and a `title` function or a string are required to be passed to the
      constuctor under this mode. If a `title` function is provided, it __MUST__
      accept a hash parameter `data`, which contains a key `label`. Its result
-     will be used to render the generated anchor's title attribute.
+     will be used to render the generated button's title attribute.
 
      If all of the `is*` flags is set to `false`, which is the default, an
      instance of this class will be in discrete page handle mode. An instance
@@ -80,7 +80,7 @@
         /**
          @property {string|function(Object.<string, string>): string} title
          The title to use for the `title` attribute of the generated page handle
-         anchor elements. It can be a string or a function that takes a `data`
+         button elements. It can be a string or a function that takes a `data`
          parameter, which contains a mandatory `label` key which provides the
          label value to be displayed.
          */
@@ -121,7 +121,7 @@
          handles. This parameter will be normalized to the base the underlying
          PageableCollection uses.
          @param {string} [options.label] If provided it is used to render the
-         anchor text, otherwise the normalized pageIndex will be used
+         button text, otherwise the normalized pageIndex will be used
          instead. Required if any of the `is*` flags is set to `true`.
          @param {string} [options.title]
          @param {boolean} [options.isRewind=false]
@@ -156,7 +156,7 @@
         },
 
         /**
-         Renders a clickable anchor element under a list item.
+         Renders a clickable button element under a list item.
          */
         render: function () {
             this.$el.empty();
